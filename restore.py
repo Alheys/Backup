@@ -27,7 +27,7 @@ def trova_backup_con_file(data, cartella_backup, percorso_file):   #Trova il pri
 def ripristina_file(percorso_file, data): #Ripristina un file da un backup tar cercando nei backup
     
     percorso_file = percorso_file.lstrip("/")  # Rimuove la / iniziale se presente
-    cartella_backup = "/opt/backup"
+    cartella_backup = "/opt/backup/"
     cartella_ripristino = os.path.join(cartella_backup, "ripristino")
     
     # Crea la cartella di ripristino se non esiste
