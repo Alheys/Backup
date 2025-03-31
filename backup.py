@@ -22,12 +22,11 @@ def crea_backup():
 
     # Cartelle da includere nel backup
     cartelle = [
-        "/etc"
-        "/home/infobasic"
-        "/usr/local/nagios"
-        "/usr/share/munin"
+        "/etc",
+        "/home/infobasic",
+        "/usr/local/nagios",
+        "/usr/share/munin",
         "/var/www"
-        "/home/infobasic/sites/Api2sql/tokens.db"
     ]
     
     # Percorsi delle cartelle di backup
