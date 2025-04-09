@@ -55,27 +55,6 @@ python3 restore.py
 - Puoi modificare i **percorsi delle cartelle** all'interno dei file (`/opt/backups`, ecc.) per adattarli alla tua infrastruttura.
 - Puoi cambiare le **cartelle da includere nel backup** all’interno di `backup.py`.
 
-## Esempi d’Uso
-
-- Controllo backup:
-
-```bash
-python3 check_backups.py
-```
-
-- Creazione backup manuale:
-
-```bash
-python3 backup.py
-```
-
-- Ripristino di un file:
-
-```bash
-python3 restore.py
-# Inserisci il percorso del file e la data quando richiesto
-```
-
 ## Come usare `restore.py`
 
 Lo script `restore.py` permette di ripristinare un file da un backup esistente. Funziona cercando nei backup completi e incrementali a partire da una data fornita e risalendo fino a 31 giorni indietro.
