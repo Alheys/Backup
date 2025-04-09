@@ -1,55 +1,79 @@
-#Backup e Ripristino
+# Backup System
 
-Questo progetto include due script Python per la gestione dei backup e del ripristino di file.
+Questo repository contiene un sistema completo di **gestione backup**, **verifica dell’integrità** e **ripristino dei file**, realizzato in Python. È progettato per eseguire automaticamente backup completi e incrementali, verificare che siano presenti e integri, ed effettuare il ripristino dei dati quando necessario.
 
-- **`backup.py`**: Esegue il backup automatico di specifiche cartelle, con backup completi settimanali e incrementali giornalieri.
-- **`restore.py`**: Permette di ripristinare un singolo file o un'intera cartella a partire da un backup esistente.
+## 📁 Contenuto
 
-##Installazione e Configurazione
+- **Backup automatico**: Crea backup completi (ogni domenica) e incrementali (gli altri giorni), utilizzando `tar` e snapshot.
+- **Verifica backup**: Controlla che tutti i backup previsti (dal più recente full a oggi) siano presenti.
+- **Ripristino file**: Cerca un file nei backup degli ultimi 31 giorni e lo estrae automaticamente se presente.
 
-###Installare Python
-Assicurati di avere Python installato sul sistema per eseguire gli script.
+## 📄 File
 
-###Rendere eseguibili gli script
+- `backup.py`: Script principale per la **creazione dei backup** completi/incrementali.
+- `check_backups.py`: Script di **verifica** dei backup mancanti; utile per integrazione con sistemi di monitoraggio come **Nagios**.
+- `restore.py`: Script per il **ripristino di un file** a partire da una data, cercando nei backup.
+- `full/` e `incr/`: Cartelle dove vengono salvati i backup (`/opt/backups/full` e `/opt/backups/incr`).
+- `ripristino/`: Cartella dove vengono estratti i file ripristinati.
 
-sudo chmod +x backup.py
-sudo chmod +x restore.py
+## ⚙️ Setup
 
+### Requisiti
 
-###Automazione con `cron`
-Per eseguire automaticamente il backup, modifica il crontab:
+- Python 3.x
+- Il comando `tar` deve essere disponibile (presente in tutti i sistemi Linux/Unix)
+- Permessi di lettura/scrittura nella directory `/opt/backups`
 
-sudo crontab -e
+### Installazione
 
-Scegli l'orario e i giorni in cui eseguire lo script.
-Esempio: per eseguirlo ogni giorno alle 02:30 di notte, aggiungi questa riga:
+1. **Clona il repository** nella tua macchina:
 
-30 2 * * * /usr/bin/python /percorso/del/file/backup.py
+```bash
+git clone https://github.com/tuo-utente/Backup-System.git
+```
 
-(Sostituisci `/percorso/del/file/` con il percorso effettivo del file `backup.py`.)
+2. **(Facoltativo)** Imposta `backup.py` come cron job per eseguirlo automaticamente ogni giorno:
 
-##Uso Manuale
+```bash
+crontab -e
+```
 
-###Eseguire manualmente il backup
+E aggiungi ad esempio:
 
-sudo python /percorso/del/file/backup.py
+```bash
+0 3 * * * /usr/bin/python3 /percorso/assoluto/backup.py
+```
 
-Se vuoi modificare le cartelle da includere nei backup, modifica la variabile `cartelle` nel file `backup.py`:
+3. **(Facoltativo)** Integra `check_backups.py` in sistemi come **Nagios** o **Zabbix** per monitorare lo stato dei backup.
 
-cartelle = ["/percorso/cartella/", "/percorso/cartella/" etc...]
+4. Puoi eseguire `restore.py` manualmente quando serve ripristinare un file:
 
+```bash
+python3 restore.py
+```
 
-###Ripristinare un file o una cartella
+## 🛠️ Personalizzazione
 
-sudo python /percorso/del/file/restore.py
+- Puoi modificare i **percorsi delle cartelle** all'interno dei file (`/opt/backups`, ecc.) per adattarli alla tua infrastruttura.
+- Puoi cambiare le **cartelle da includere nel backup** all’interno di `backup.py`.
 
-Il programma:
-1. Chiederà il **percorso del file o della cartella** da ripristinare.
-2. Chiederà la **data del backup** da cui partire per la ricerca.
-   - Se il file non è presente nella data selezionata, il programma cercherà nei backup precedenti.
-3. Il file o la cartella verranno ripristinati in `/backup/ripristino/`.
+## ✅ Esempi d’Uso
 
+- Controllo backup:
 
+```bash
+python3 check_backups.py
+```
 
+- Creazione backup manuale:
 
+```bash
+python3 backup.py
+```
 
+- Ripristino di un file:
+
+```bash
+python3 restore.py
+# Inserisci il percorso del file e la data quando richiesto
+```
