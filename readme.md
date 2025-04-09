@@ -13,8 +13,6 @@ Questo repository contiene un sistema completo di creazione backup controllo e r
 - `backup.py`: Script principale per la **creazione dei backup** completi/incrementali.
 - `check_backups.py`: Script di **verifica** dei backup mancanti; utile per integrazione con sistemi di monitoraggio come **Nagios**.
 - `restore.py`: Script per il **ripristino di un file** a partire da una data, cercando nei backup.
-- `full/` e `incr/`: Cartelle dove vengono salvati i backup (`/opt/backups/full` e `/opt/backups/incr`).
-- `ripristino/`: Cartella dove vengono estratti i file ripristinati.
 
 ## Setup
 
