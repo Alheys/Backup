@@ -33,7 +33,7 @@ https://github.com/Alheys/Backup.git
 2. **(Facoltativo)** Imposta `backup.py` come cron job per eseguirlo automaticamente ogni giorno:
 
 ```bash
-crontab -e
+sudo crontab -e
 ```
 
 E aggiungi ad esempio:
