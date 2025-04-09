@@ -52,12 +52,12 @@ E aggiungi ad esempio:
 python3 restore.py
 ```
 
-## 🛠️ Personalizzazione
+## Personalizzazione
 
 - Puoi modificare i **percorsi delle cartelle** all'interno dei file (`/opt/backups`, ecc.) per adattarli alla tua infrastruttura.
 - Puoi cambiare le **cartelle da includere nel backup** all’interno di `backup.py`.
 
-## ✅ Esempi d’Uso
+## Esempi d’Uso
 
 - Controllo backup:
 
