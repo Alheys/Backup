@@ -75,3 +75,47 @@ python3 backup.py
 python3 restore.py
 # Inserisci il percorso del file e la data quando richiesto
 ```
+
+## Come usare `restore.py`
+
+Lo script `restore.py` permette di ripristinare un file da un backup esistente. Funziona cercando nei backup completi e incrementali a partire da una data fornita e risalendo fino a 31 giorni indietro.
+
+### Esecuzione da terminale
+
+```bash
+python3 restore.py
+```
+
+### Inserimento dati richiesti
+
+Quando esegui lo script, ti verranno chieste due informazioni:
+
+1. **Percorso del file da ripristinare**  
+   Inserisci il percorso del file che vuoi ripristinare, come ad esempio:
+
+   ```
+   /etc/hosts
+   /home/infobasic/documento.txt
+   ```
+
+   Non è necessario togliere la slash iniziale, lo script lo gestisce automaticamente.
+
+2. **Data del backup da cui partire**  
+   Inserisci la data nel formato **gg-mm-aaaa**, ad esempio:
+
+   ```
+   07-04-2025
+   ```
+
+   Lo script cercherà a ritroso fino a 31 giorni indietro per trovare un backup che contenga il file.
+
+### Esempio completo
+
+```bash
+$ python3 restore.py
+Inserisci il percorso del file da ripristinare: /etc/hosts
+Inserisci la data del backup da cui partire (dd-mm-YYYY): 07-04-2025
+File etc/hosts ripristinato in /opt/backups/ripristino
+```
+
+Il file verrà estratto nella cartella `/opt/backups/ripristino`.
