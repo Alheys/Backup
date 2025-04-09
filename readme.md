@@ -1,14 +1,14 @@
 # Backup System
 
-Questo repository contiene un sistema completo di **gestione backup**, **verifica dell’integrità** e **ripristino dei file**, realizzato in Python. È progettato per eseguire automaticamente backup completi e incrementali, verificare che siano presenti e integri, ed effettuare il ripristino dei dati quando necessario.
+Questo repository contiene un sistema completo di creazione backup controllo e recupero dei file. È progettato per eseguire automaticamente backup completi e incrementali, verificare che siano presenti e integri, ed effettuare il ripristino dei dati quando necessario.
 
-## 📁 Contenuto
+## Contenuto
 
 - **Backup automatico**: Crea backup completi (ogni domenica) e incrementali (gli altri giorni), utilizzando `tar` e snapshot.
 - **Verifica backup**: Controlla che tutti i backup previsti (dal più recente full a oggi) siano presenti.
 - **Ripristino file**: Cerca un file nei backup degli ultimi 31 giorni e lo estrae automaticamente se presente.
 
-## 📄 File
+## File
 
 - `backup.py`: Script principale per la **creazione dei backup** completi/incrementali.
 - `check_backups.py`: Script di **verifica** dei backup mancanti; utile per integrazione con sistemi di monitoraggio come **Nagios**.
@@ -16,7 +16,7 @@ Questo repository contiene un sistema completo di **gestione backup**, **verific
 - `full/` e `incr/`: Cartelle dove vengono salvati i backup (`/opt/backups/full` e `/opt/backups/incr`).
 - `ripristino/`: Cartella dove vengono estratti i file ripristinati.
 
-## ⚙️ Setup
+## Setup
 
 ### Requisiti
 
