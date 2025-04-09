@@ -73,8 +73,7 @@ Quando esegui lo script, ti verranno chieste due informazioni:
    Inserisci il percorso del file che vuoi ripristinare, come ad esempio:
 
    ```
-   /etc/hosts
-   /home/infobasic/documento.txt
+   /percorso/del/file
    ```
 
    Non è necessario togliere la slash iniziale, lo script lo gestisce automaticamente.
