@@ -44,7 +44,7 @@ E aggiungi ad esempio:
 0 3 * * * /usr/bin/python3 /percorso/assoluto/backup.py
 ```
 
-3. **(Facoltativo)** Integra `check_backups.py` in sistemi come **Nagios** o **Zabbix** per monitorare lo stato dei backup.
+3. **(Facoltativo)** Integra `check_backups.py` in sistemi come **Nagios** per monitorare lo stato dei backup.
 
 4. Puoi eseguire `restore.py` manualmente quando serve ripristinare un file:
 
