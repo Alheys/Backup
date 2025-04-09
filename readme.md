@@ -27,7 +27,7 @@ Questo repository contiene un sistema completo di creazione backup controllo e r
 1. **Clona il repository** nella tua macchina:
 
 ```bash
-git clone https://github.com/tuo-utente/Backup-System.git
+https://github.com/Alheys/Backup.git
 ```
 
 2. **(Facoltativo)** Imposta `backup.py` come cron job per eseguirlo automaticamente ogni giorno:
